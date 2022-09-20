@@ -21,6 +21,7 @@ html{
 body{
   font-family: 'Recursive', monospace;
   font-size: 20px;
+  font-size: min(max(calc(12px + (36 - 12) * ((100vw - 500px) / (3000 - 500))), 12px),36px);
   color: white;
   padding: 5% 5% 5% 5%;
 }
