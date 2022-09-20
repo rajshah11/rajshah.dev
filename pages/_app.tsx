@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
 html{
   background: #05445E;
   height: 100%;
-  max-width: 60%;
+  max-width: max(480px, 60%);
   margin:0 auto;
   padding: 0;
 }
@@ -23,7 +23,7 @@ body{
   font-size: 20px;
   font-size: min(max(calc(16px + (24 - 16) * ((100vw - 500px) / (3000 - 500))), 12px), 36px);
   color: white;
-  padding: 5% 5% 5% 5%;
+  padding: 2vmin;
 }
 
 a{
