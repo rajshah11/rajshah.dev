@@ -3,8 +3,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Recursive:wght@800&display=swap');
 html{
   background: black;
   height: 100%;
