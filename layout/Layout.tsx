@@ -3,7 +3,6 @@ import styled from "../types/styled-components";
 const StyledLayout = styled.div`
   background: black;
   height: 100%;
-  weight: 100%
   margin:0 auto;
   position:fixed;
   padding:0;
