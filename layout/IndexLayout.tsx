@@ -3,10 +3,10 @@ import React from 'react'
 
 const StyledIndex = styled.div`
   margin: auto;
-  padding: 2% 2% 2% 2%;
+  padding: 2vmin;
   width: max(480px, 60%);
-  font-family: 'Recursive';
-  font-variation-settings: 'wght' 800, 'CASL' 0;
+  font-family: 'Recursive', sans-serif;
+  font-variation-settings: 'wght' 800;
   font-size: 20px;
   font-size: min(max(calc(16px + (24 - 16) * ((100vw - 500px) / (3000 - 500))), 12px), 36px);
   padding: 2vmin;
