@@ -1,9 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "../types/styled-components";
 
 export default createGlobalStyle`
   @font-face {
     font-family: 'Recursive';
-    src: url('Recursive_VF_1.085.woff2') format('woff2-variations');
+    src: url('recursive.woff2') format('woff2-variations');
     font-weight: 300 1000;
   }
 `
