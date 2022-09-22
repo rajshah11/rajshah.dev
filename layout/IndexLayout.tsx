@@ -4,7 +4,7 @@ import React from 'react'
 const StyledIndex = styled.div`
   margin: auto;
   padding: 2vmin;
-  width: max(480px, 60%);
+  width: min(max(480px, 60%), 100vw);
   font-family: 'Recursive', sans-serif;
   font-variation-settings: 'wght' 800;
   font-size: 20px;
@@ -25,7 +25,7 @@ const StyledIndex = styled.div`
     hsl(187deg 83% 40%) 100%
   );
   -webkit-background-clip: text;
-  -webkit-text-fill-color: rgba(0,0,0, 0);
+  -webkit-text-fill-color: transparent;
 `
 
 type IndexLayoutProps = {
