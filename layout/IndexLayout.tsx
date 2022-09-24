@@ -10,9 +10,12 @@ const StyledIndex = styled.div`
   font-size: 20px;
   font-size: min(max(calc(16px + (24 - 16) * ((100vw - 500px) / (3000 - 500))), 12px), 36px);
   padding: 2vmin;
-  background-color: #0093E9;
-  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-    -webkit-background-clip: text;
+  background: rgb(0,148,255);
+background: -moz-linear-gradient(109deg, rgba(0,148,255,1) 15%, rgba(61,245,167,1) 85%);
+background: -webkit-linear-gradient(109deg, rgba(0,148,255,1) 15%, rgba(61,245,167,1) 85%);
+background: linear-gradient(109deg, rgba(0,148,255,1) 15%, rgba(61,245,167,1) 85%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0094ff",endColorstr="#3df5a7",GradientType=1);
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `
 

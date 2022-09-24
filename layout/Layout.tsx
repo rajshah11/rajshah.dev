@@ -1,7 +1,7 @@
 import styled from "../types/styled-components";
 
 const StyledLayout = styled.div`
-  background: black;
+  background: rgb(0,0,0,1);
   height: 100%;
   margin:0 auto;
   position:fixed;
