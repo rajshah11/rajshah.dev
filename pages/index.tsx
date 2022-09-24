@@ -1,13 +1,16 @@
-import { IconsRow } from "../components/icons";
+import { IconsRow } from "../components/Icons";
 import IndexLayout from "../layout/IndexLayout";
 import Head from "next/head"
+import Navbar from "../components/Navbar"
 
 const IndexPage = () => (
   <>
     <Head>
       <title>Raj Shah</title>
     </Head>
+
     <IndexLayout>
+      <Navbar />
 
       <h1>Hi, I&apos;m Raj</h1>
 
