@@ -10,7 +10,7 @@ const HorizontalIconDiv = styled.div`
 
 const IconSvgDiv = styled.a`
   padding: 2% 2% 2% 2%;
-  -webkit-filter:invert(1);
+  -webkit-filter:invert(${props => props.theme.darkmode === true ? 1 : 0});
   width: min(max(calc(30px + (50 - 30) * ((100vw - 500px) / (3000 - 500))), 30px), 50px);
   height: min(max(calc(30px + (50 - 30) * ((100vw - 500px) / (3000 - 500))), 30px), 50px);
 `
