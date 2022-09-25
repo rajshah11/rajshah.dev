@@ -42,8 +42,9 @@ const NavLink = styled.a<{ href: string, pathname: string }>`
   @media (min-width: 768px) {    
     margin: 0px 1.5vh;
   }
-  -webkit-text-fill-color: ${props => props.pathname === props.href ? props.theme.darkmode ? 'white' : 'black' : 'transparent'};
+  -webkit-text-fill-color: ${props => props.pathname === props.href ? props.theme.darkmode ? 'white' : 'black' : props.theme.darkmode? 'rgba(61,245,167,1)' :'rgba(255,41,41,1)'};
   text-decoration: none;
+  transition: all 1s ease-in;
 `
 
 const NavBarToggle = styled.span`
@@ -89,7 +90,7 @@ const StyledSun = css`
     border-radius: 100px;
     box-shadow: inset 0 0 0 2px;
     border: 6px solid transparent;
-    color: black;
+    color: rgba(255,41,41,1);
   }
   &::after,
   &::before {
@@ -118,7 +119,7 @@ const StyledMoon = css`
     display: block;
     box-sizing: border-box;
     border-radius: 50%;
-    color:white;
+    color:rgba(61,245,167,1);
   }
   & {
     overflow: hidden;
@@ -143,7 +144,7 @@ const StyledMoon = css`
 
 const StyledDarkModeIcon = styled.i`
   ${props => props.theme.darkmode === true ? StyledMoon : StyledSun};
-  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in;
 `
 
 const StyledButtonDiv = styled.div`
@@ -158,7 +159,7 @@ const StyledButton = styled.button`
   background-color: rgba(255, 255, 255, 0);
   border: none;
   color: none;
-  transition: 800ms ease all;
+  cursor: pointer;
 `
 
 function Navbar() {
