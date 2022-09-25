@@ -27,7 +27,7 @@ const StyledIndex = styled.div`
   padding: 2vmin;
   ${props => props.theme.darkmode === true ? darkmodeBackground : lightmodeBackground};
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
 `
 
 type IndexLayoutProps = {
