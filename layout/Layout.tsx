@@ -9,6 +9,7 @@ const StyledLayout = styled.div`
   margin: 0;
   top: 0;
   left: 0;
+  transition: background 0.6s ease-in-out;
 `
 
 type LayoutProps = {

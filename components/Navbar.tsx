@@ -89,6 +89,7 @@ const StyledSun = css`
     border-radius: 100px;
     box-shadow: inset 0 0 0 2px;
     border: 6px solid transparent;
+    color: black;
   }
   &::after,
   &::before {
@@ -154,7 +155,7 @@ const StyledButtonDiv = styled.div`
 `
 
 const StyledButton = styled.button`
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0);
   border: none;
   color: none;
   transition: 800ms ease all;
