@@ -1,25 +1,18 @@
-import type { AppProps } from 'next/app'
-import Layout from "../layout/Layout"
-import ThemeInterface from "../types/theme"
-import { ThemeProvider } from 'styled-components';
-import { useState } from 'react';
+import type { AppProps } from "next/app";
+import Layout from "../layout/Layout";
+import { MDXProvider } from "@mdx-js/react";
+import { ImageGallery } from "../layout/StyledLayouts";
+
+const components = { ImageGallery };
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log('Rendering!')
-  const [darkmode, setDarkmode] = useState(true)
-
-  const toggleDarkmode = () => {
-    setDarkmode(!darkmode)
-  }
-
-  const theme: ThemeInterface = { darkmode, toggleDarkmode }
-  return <>
-    <ThemeProvider theme={theme}>
+  return (
+    <MDXProvider components={components}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </ThemeProvider>
-  </>
+    </MDXProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
