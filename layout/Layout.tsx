@@ -1,25 +1,19 @@
-import styled from "../types/styled-components";
+import styled from "styled-components";
 
 const StyledLayout = styled.div`
-  background: ${props => props.theme.darkmode === true ? 'black' : 'white'};
-  height: 100%;
-  margin: 0 auto;
-  position: fixed;
+  position: relative;
   padding: 0;
-  margin: 0;
+  margin: auto;
   top: 0;
   left: 0;
-  transition: all 1s ease-in-out;
-`
+`;
 
 type LayoutProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 const Layout = ({ children }: LayoutProps) => (
-  <StyledLayout>
-    {children}
-  </StyledLayout>
+  <StyledLayout>{children}</StyledLayout>
 );
 
 export default Layout;

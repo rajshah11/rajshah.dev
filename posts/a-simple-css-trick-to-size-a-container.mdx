@@ -1,0 +1,95 @@
+---
+title: "A simple CSS trick to size a container for any viewport"
+date: "2022-11-19"
+categories: ["code"]
+layout: "post_with_table"
+---
+
+## What is a viewport?
+
+The viewport refers to the part of the webpage that is visible in its window, and it dimensions are measured in _CSS_ pixels. Do not confuse this with the physical resolution of the screen!
+
+Here are some examples of viewport widths -
+
+| Viewport                                                            | Width (in _CSS_ pixels) |
+| ------------------------------------------------------------------- | ----------------------- |
+| Fully maximized browser window on a 27 inch monitor                 | 2993                    |
+| Browser window occupying 35% of the screen on a 27 inch monitor     | 1047                    |
+| Fully maximized browser window on a 14 inch MacBook Pro             | 1800                    |
+| Browser window occupying 50% of the screen on a 14 inch MacBook Pro | 900                     |
+| Samsung Galaxy S21's screen                                         | 360                     |
+
+<br />
+
+## The trick
+
+Below is the CSS I use to set the width of the central div that holds the content for this website -
+
+```css
+width: min(max(480px, 50vw), 100vw);
+```
+
+The code above essentially follows 3 conditions:
+
+1. If 60% of the viewport's width > 480px, then use 60% of the viewport's width
+
+   - _This ensures that for large windows or screens like a 27 inch monitor, the content of the webpage is not extended and difficult to read like first image, but compact, in-focus and easy to read like the second one._
+
+<ImageGallery
+  imageList={[
+    {
+      path: "/posts_assets/a-simple-css-trick-to-size-a-container/2993_wide_viewport_100.png",
+      caption: "Text occupying 100% of a 2993px wide viewport.",
+    },
+    {
+      path: "/posts_assets/a-simple-css-trick-to-size-a-container/2993_wide_viewport_50.png",
+      caption:
+        "Text occupying 50% of a 2993px wide viewport. Centered, in-focus and easier to read.",
+    },
+  ]}
+  numRows={1}
+  colSizing="col-xs-12 col-sm-12 col-md-12 col-lg"
+/>
+
+2. If condition #1 is false and 100% of the viewport's width is < 480px, then set the width to 480px
+
+   - _For medium-sized windows or screens, this ensures that we are using somewhere between 60% to 100% of the viewport's width, so that our content is not too extended or too congested._
+
+<ImageGallery
+  imageList={[
+    {
+      path: "/posts_assets/a-simple-css-trick-to-size-a-container/585_vw_50.png",
+      caption: "Text occupying 50% of a 585px wide viewport. Too cramped.",
+    },
+    {
+      path: "/posts_assets/a-simple-css-trick-to-size-a-container/585_vw_100.png",
+      caption: "Text occupying 100% of a 585px wide viewport.",
+    },
+    {
+      path: "/posts_assets/a-simple-css-trick-to-size-a-container/585_vw_480.png",
+      caption: "Text occupying 480px i.e. 82% of a 585px wide viewport.",
+    },
+  ]}
+  numRows={1}
+  colSizing="col-xs col-sm col-md col-lg"
+/>
+
+3. If conditions #1 and #2, then use 100% of the viewport's width
+   - _This allows the website to use all of the real-estate on a mobile screen._
+
+Finally, below are some plots to drive home the message. Hope this was helpful!
+
+<ImageGallery
+  imageList={[
+    {
+      path: "/posts_assets/a-simple-css-trick-to-size-a-container/container_vw_plot.png",
+      caption: "Text occupying 50% of a 585px wide viewport. Too cramped.",
+    },
+    {
+      path: "/posts_assets/a-simple-css-trick-to-size-a-container/percent_vw_plot.png",
+      caption: "Text occupying 100% of a 585px wide viewport.",
+    },
+  ]}
+  numRows={1}
+  colSizing="col-xs-12 col-sm-12 col-md-12 col-lg"
+/>
