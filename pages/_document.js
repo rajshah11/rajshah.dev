@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
@@ -16,9 +17,8 @@ export default function Document() {
         ></link>
       </Head>
       <body>
-        <Main>
-          <script src="/prism/prism.js"></script>
-        </Main>
+        <Script src="/prism/prism.js"></Script>
+        <Main />
         <NextScript />
       </body>
     </Html>
