@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   html, body{
-    background-color: ${(props) => props.theme.colors.appBackground};
+    background-color: ${(props) => props.theme.colors.subtleBackground};
     --main-div-max-width: min(max(480px, 50vw), 100vw);
     font-family: ${(props) => props.theme.fontFamily};
     font-variation-settings: "wght" ${(props) =>

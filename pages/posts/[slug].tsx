@@ -18,7 +18,11 @@ export default function PostPage({
   const layout: PostLayoutKeysType = (post.mdxSource.frontmatter?.layout ??
     "post") as PostLayoutKeysType;
   return (
-    <PostLayout title={post.mdxSource.frontmatter?.title} layout={layout}>
+    <PostLayout
+      title={post.mdxSource.frontmatter?.title}
+      date={post.mdxSource.frontmatter?.date ?? ""}
+      layout={layout}
+    >
       <MDXRemote {...post.mdxSource} />
     </PostLayout>
   );

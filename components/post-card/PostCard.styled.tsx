@@ -41,7 +41,8 @@ export const PostCardMain = styled(Link)`
   &:active {
     color: inherit;
   }
-
+  &:link,
+  &:visited,
   &:hover,
   &:active {
     text-decoration: none;
@@ -61,6 +62,10 @@ export const PostCardLink = styled(Link)`
   &:hover,
   &:active {
     text-decoration: underline;
+  }
+  &:link,
+  &:visited {
+    text-decoration: none;
   }
 `;
 export const StyledDate = styled.div`

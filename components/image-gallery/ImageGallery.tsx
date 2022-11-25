@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import * as Styled from "./ImageGallery.styled";
 import * as Types from "./ImageGallery.types";
 
