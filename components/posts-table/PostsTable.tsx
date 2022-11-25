@@ -22,6 +22,39 @@ const TitleAndDateCustomCss = css`
     }
   `}
 `;
+
+const Test = ({ post }: { post: PostFrontmatterType }) =>
+  post.frontmatter?.title ? (
+    <Link href={`/posts/${post.slug}`} passHref>
+      <Styled.TableRow>
+        <Styled.TableColumn width="80%" customCss={TitleAndDateCustomCss}>
+          <Styled.PostTitleAndDate>
+            <Styled.PostTitle>{post.frontmatter.title}</Styled.PostTitle>
+            {post.frontmatter.date && (
+              <Styled.PostDate>
+                {dayjs(post.frontmatter?.date).format("MMMM DD, YYYY")}
+              </Styled.PostDate>
+            )}
+          </Styled.PostTitleAndDate>
+        </Styled.TableColumn>
+
+        {post.frontmatter.categories && (
+          <Styled.TableColumn width="20%">
+            <Styled.PostCategories>
+              {post.frontmatter.categories.split(",").map((c) => {
+                return (
+                  <Styled.PostCategoryLabel>
+                    {c.trim().toUpperCase()}
+                  </Styled.PostCategoryLabel>
+                );
+              })}
+            </Styled.PostCategories>
+          </Styled.TableColumn>
+        )}
+      </Styled.TableRow>
+    </Link>
+  ) : null;
+
 export const PostsTable = ({
   posts,
 }: {
@@ -29,45 +62,9 @@ export const PostsTable = ({
 }) => {
   return (
     <Styled.PostsTable>
-      {posts.map((post, index) => {
-        return (
-          post.frontmatter?.title && (
-            <Link key={`{LINK-${index}}`} href={`/posts/${post.slug}`} passHref>
-              <Styled.TableRow>
-                <Styled.TableColumn
-                  width="80%"
-                  customCss={TitleAndDateCustomCss}
-                >
-                  <Styled.PostTitleAndDate>
-                    <Styled.PostTitle>
-                      {post.frontmatter.title}
-                    </Styled.PostTitle>
-                    {post.frontmatter.date && (
-                      <Styled.PostDate>
-                        {dayjs(post.frontmatter?.date).format("MMMM DD, YYYY")}
-                      </Styled.PostDate>
-                    )}
-                  </Styled.PostTitleAndDate>
-                </Styled.TableColumn>
-
-                {post.frontmatter.categories && (
-                  <Styled.TableColumn width="20%">
-                    <Styled.PostCategories>
-                      {post.frontmatter.categories.split(",").map((c) => {
-                        return (
-                          <Styled.PostCategoryLabel>
-                            {c.trim().toUpperCase()}
-                          </Styled.PostCategoryLabel>
-                        );
-                      })}
-                    </Styled.PostCategories>
-                  </Styled.TableColumn>
-                )}
-              </Styled.TableRow>
-            </Link>
-          )
-        );
-      })}
+      {posts.map((post, index) => (
+        <Test key={`POST-TABLE-ROW-${index}`} post={post} />
+      ))}
     </Styled.PostsTable>
   );
 };
