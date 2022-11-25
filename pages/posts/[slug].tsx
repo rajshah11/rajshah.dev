@@ -1,6 +1,6 @@
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { PostLayout, PostLayoutKeys } from "../../layout/StyledLayouts";
-import { getAllPosts, getPostBySlug } from "../../lib/api";
+import { PostLayout, PostLayoutKeysType } from "../../layouts";
+import { Posts } from "../../api";
 
 interface PostInterface {
   slug: string;
@@ -9,13 +9,14 @@ interface PostInterface {
     Record<string, string>
   >;
 }
+
 export default function PostPage({
   post,
 }: {
   post: PostInterface;
 }): JSX.Element {
-  const layout: PostLayoutKeys = (post.mdxSource.frontmatter?.layout ??
-    "post") as PostLayoutKeys;
+  const layout: PostLayoutKeysType = (post.mdxSource.frontmatter?.layout ??
+    "post") as PostLayoutKeysType;
   return (
     <PostLayout title={post.mdxSource.frontmatter?.title} layout={layout}>
       <MDXRemote {...post.mdxSource} />
@@ -30,7 +31,7 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const post = await getPostBySlug(params.slug);
+  const post = await Posts.getPostBySlug(params.slug);
 
   return {
     props: {
@@ -45,7 +46,7 @@ export async function getStaticPaths(): Promise<{
   paths: { params: { slug: string } }[];
   fallback: boolean;
 }> {
-  const posts = await getAllPosts();
+  const posts = await Posts.getAllPosts();
   return {
     paths: posts.map((post) => {
       return {

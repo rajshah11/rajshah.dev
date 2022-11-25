@@ -1,8 +1,9 @@
 ---
-title: "A simple CSS trick to size a container for any viewport"
-date: "2022-11-19"
+title: "CSS magic to size a container for any viewport"
+date: "2022-11-23"
 categories: ["code"]
 layout: "post_with_table"
+banner_text: "A simple CSS trick to set the max-width of component such that content is centered and in-focus on any viewport. The same logic can also applied to other quantities like height, font size, etc."
 ---
 
 ## What is a viewport?
@@ -26,7 +27,7 @@ Here are some examples of viewport widths -
 Below is the CSS I use to set the width of the central div that holds the content for this website -
 
 ```css
-width: min(max(480px, 50vw), 100vw);
+max-width: min(max(480px, 50vw), 100vw);
 ```
 
 The code above essentially follows 3 conditions:
@@ -38,11 +39,11 @@ The code above essentially follows 3 conditions:
 <ImageGallery
   imageList={[
     {
-      path: "/posts_assets/a-simple-css-trick-to-size-a-container/2993_wide_viewport_100.png",
+      path: "/posts-assets/a-simple-css-trick-to-size-a-container/2993_wide_viewport_100.png",
       caption: "Text occupying 100% of a 2993px wide viewport.",
     },
     {
-      path: "/posts_assets/a-simple-css-trick-to-size-a-container/2993_wide_viewport_50.png",
+      path: "/posts-assets/a-simple-css-trick-to-size-a-container/2993_wide_viewport_50.png",
       caption:
         "Text occupying 50% of a 2993px wide viewport. Centered, in-focus and easier to read.",
     },
@@ -58,15 +59,15 @@ The code above essentially follows 3 conditions:
 <ImageGallery
   imageList={[
     {
-      path: "/posts_assets/a-simple-css-trick-to-size-a-container/585_vw_50.png",
+      path: "/posts-assets/a-simple-css-trick-to-size-a-container/585_vw_50.png",
       caption: "Text occupying 50% of a 585px wide viewport. Too cramped.",
     },
     {
-      path: "/posts_assets/a-simple-css-trick-to-size-a-container/585_vw_100.png",
+      path: "/posts-assets/a-simple-css-trick-to-size-a-container/585_vw_100.png",
       caption: "Text occupying 100% of a 585px wide viewport.",
     },
     {
-      path: "/posts_assets/a-simple-css-trick-to-size-a-container/585_vw_480.png",
+      path: "/posts-assets/a-simple-css-trick-to-size-a-container/585_vw_480.png",
       caption: "Text occupying 480px i.e. 82% of a 585px wide viewport.",
     },
   ]}
@@ -82,12 +83,12 @@ Finally, below are some plots to drive home the message. Hope this was helpful!
 <ImageGallery
   imageList={[
     {
-      path: "/posts_assets/a-simple-css-trick-to-size-a-container/container_vw_plot.png",
-      caption: "Text occupying 50% of a 585px wide viewport. Too cramped.",
+      path: "/posts-assets/a-simple-css-trick-to-size-a-container/container_vw_plot.png",
+      caption: "Container width vs viewport width",
     },
     {
-      path: "/posts_assets/a-simple-css-trick-to-size-a-container/percent_vw_plot.png",
-      caption: "Text occupying 100% of a 585px wide viewport.",
+      path: "/posts-assets/a-simple-css-trick-to-size-a-container/percent_vw_plot.png",
+      caption: "% of viewport width utilized vs viewport width",
     },
   ]}
   numRows={1}
