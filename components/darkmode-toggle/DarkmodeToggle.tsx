@@ -11,7 +11,7 @@ export const DarkmodeToggle = () => {
             onPressedChange={toggleTheme}
             defaultPressed={false}
           >
-            <Styled.SunIcon />
+            {theme == "dark" ? <Styled.SunIcon /> : <Styled.MoonIcon />}
           </Styled.DarkmodeToggleIcon>
         );
       }}

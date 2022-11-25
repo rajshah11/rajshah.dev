@@ -4,9 +4,9 @@ import { Layout } from "../layout/Layout";
 export const IndexLayout = ({ children }: { children: React.ReactNode }) => {
   const header = (
     <div>
-      <Text.Header margin={"0"}>Code.&nbsp;</Text.Header>
-      <Text.Header margin={"0"}>Life.&nbsp;</Text.Header>
-      <Text.Header margin={"0em 0em 1em 0em"}>Everything else.</Text.Header>
+      <Text.Header margin={"0em 0em 1em 0em"}>
+        Code.&nbsp;Life.&nbsp;Everything else.
+      </Text.Header>
     </div>
   );
   return (

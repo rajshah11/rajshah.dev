@@ -26,3 +26,8 @@ export const SunIcon = styled(SunSvg)`
   width: 2em;
   height: 2em;
 `;
+
+export const MoonIcon = styled(MoonSvg)`
+  width: 2em;
+  height: 2em;
+`;

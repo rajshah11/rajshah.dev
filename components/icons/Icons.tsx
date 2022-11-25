@@ -7,7 +7,11 @@ const IconWithLink = ({
   link: string;
   children: React.ReactNode;
 }) => {
-  return <a href={link}>{children}</a>;
+  return (
+    <a href={link} target="_blank">
+      {children}
+    </a>
+  );
 };
 export const Icons = () => (
   <Styled.Icons>

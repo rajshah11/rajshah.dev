@@ -1,6 +1,6 @@
 import { IndexLayout } from "../layouts";
 import { Posts } from "../api";
-import { PostCard } from "../components";
+import { PostCard, Stack } from "../components";
 
 type Props = {
   posts: {
@@ -14,13 +14,18 @@ const IndexPage = ({ posts }: Props) => (
   </IndexLayout>
 );
 
-const RecentPostsStack = ({ posts }: Props) => {
-  return (
-    <>
-      <PostCard></PostCard>
-    </>
-  );
-};
+const RecentPostsStack = ({ posts }: Props) => (
+  <Stack direction="column" gap="2em">
+    {posts.map((post) => (
+      <PostCard
+        title={post.frontmatter?.title ?? ""}
+        content={post.frontmatter?.banner_text ?? ""}
+        date={post.frontmatter?.date ?? ""}
+        link={`/posts/${post.slug}`}
+      />
+    ))}
+  </Stack>
+);
 
 export const getStaticProps = async () => {
   const posts = await Posts.getFrontmatterForAllPosts();

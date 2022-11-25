@@ -4,3 +4,4 @@ export { Navbar } from "./navbar/Navbar";
 export * as Text from "./text/Text";
 export { DarkmodeToggle } from "./darkmode-toggle/DarkmodeToggle";
 export { PostCard } from "./post-card/PostCard";
+export { Stack } from "./stack/Stack";

@@ -24,7 +24,9 @@ export const PostCardRoot = styled.div`
   `}
 `;
 
-export const PostCardTitle = styled.h3``;
+export const PostCardTitle = styled.h3`
+  margin-block-end: 0.5em;
+`;
 
 export const PostCardContent = styled.div`
   padding-bottom: 1em;
@@ -60,4 +62,9 @@ export const PostCardLink = styled(Link)`
   &:active {
     text-decoration: underline;
   }
+`;
+export const StyledDate = styled.div`
+  font-size: 0.8em;
+  color: ${(props) => props.theme.colors.lowContrastText};
+  padding-bottom: 0.8em;
 `;
