@@ -51,18 +51,26 @@ export async function getAllPosts(): Promise<Array<PostType>> {
   return sortPostsByDate(posts);
 }
 
-export async function getFrontmatterForAllPosts(): Promise<
-  Array<PostFrontmatterType>
-> {
+export async function getFrontmatterForRecentPosts(
+  count: number | "all"
+): Promise<Array<PostFrontmatterType>> {
   const slugs = getPostSlugs();
   const posts = await Promise.all(
     slugs.map(async (slug) => await getPostBySlug(slug))
   );
   // sort posts by date in descending order
-  return sortPostsByDate(posts).map((p) => {
-    return {
-      slug: p.slug,
-      frontmatter: p.mdxSource.frontmatter,
-    };
-  });
+  return sortPostsByDate(posts)
+    .map((p) => {
+      return {
+        slug: p.slug,
+        frontmatter: p.mdxSource.frontmatter,
+      };
+    })
+    .slice(0, count == "all" ? posts.length : count);
+}
+
+export async function getFrontmatterForAllPosts(): Promise<
+  Array<PostFrontmatterType>
+> {
+  return await getFrontmatterForRecentPosts("all");
 }

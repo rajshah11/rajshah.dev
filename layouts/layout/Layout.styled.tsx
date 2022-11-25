@@ -22,7 +22,7 @@ export const PageHeader = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   flex-grow: 1;
-  padding-bottom: 1.25vh;
+  padding-bottom: 1em;
 `;
 
 export const PageTitleNavbar = styled.div`
