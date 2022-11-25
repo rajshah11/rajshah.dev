@@ -8,7 +8,7 @@ const IconWithLink = ({
   children: React.ReactNode;
 }) => {
   return (
-    <a href={link} target="_blank">
+    <a href={link} target="_blank" rel="noreferrer">
       {children}
     </a>
   );

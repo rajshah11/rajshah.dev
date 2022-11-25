@@ -16,8 +16,9 @@ const IndexPage = ({ posts }: Props) => (
 
 const RecentPostsStack = ({ posts }: Props) => (
   <Stack direction="column" gap="2em">
-    {posts.map((post) => (
+    {posts.map((post, index) => (
       <PostCard
+        key={index}
         title={post.frontmatter?.title ?? ""}
         content={post.frontmatter?.banner_text ?? ""}
         date={post.frontmatter?.date ?? ""}
