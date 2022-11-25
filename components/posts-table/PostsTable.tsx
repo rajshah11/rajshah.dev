@@ -29,10 +29,10 @@ export const PostsTable = ({
 }) => {
   return (
     <Styled.PostsTable>
-      {posts.map((post) => {
+      {posts.map((post, index) => {
         return (
           post.frontmatter?.title && (
-            <Link href={`/posts/${post.slug}`} passHref>
+            <Link key={`{LINK-${index}}`} href={`/posts/${post.slug}`} passHref>
               <Styled.TableRow>
                 <Styled.TableColumn
                   width="80%"
