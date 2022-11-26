@@ -16,9 +16,21 @@ const components = { ImageGallery: ImageGallery };
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = React.useState<ThemeType>("dark");
+  React.useEffect(() => {
+    const darkmodePreference = window.localStorage.getItem(
+      "dark-mode-preference"
+    ) as ThemeType;
+    darkmodePreference && setTheme(darkmodePreference);
+  }, []);
   const themeContext: ThemeContextType = {
     theme: theme,
-    toggleTheme: () => setTheme(theme == "dark" ? "light" : "dark"),
+    toggleTheme: () => {
+      window.localStorage.setItem(
+        "dark-mode-preference",
+        theme == "dark" ? "light" : "dark"
+      );
+      setTheme(theme == "dark" ? "light" : "dark");
+    },
   };
   return (
     <ThemeContext.Provider value={themeContext}>
