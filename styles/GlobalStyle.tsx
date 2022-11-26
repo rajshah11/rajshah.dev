@@ -75,7 +75,7 @@ export const GlobalStyle = createGlobalStyle`
     font-variation-settings: "wght" ${(props) =>
       props.theme.fontWeights.h4}, "slnt" ${(props) =>
   props.theme.fontSlants.h4};  }
-  tr{
-    border: 0.125em solid;
+  tr,td {
+    border: 0.0625em solid;
   }
 `;
