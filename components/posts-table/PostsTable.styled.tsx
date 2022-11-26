@@ -35,6 +35,7 @@ export const PostCategories = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 0.25em;
+  margin: auto;
 `;
 
 export const PostCategoryLabel = styled.label`
