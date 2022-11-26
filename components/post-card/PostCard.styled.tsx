@@ -10,13 +10,13 @@ export const PostCardRoot = styled.div`
     border: 0.0625em solid;
     border-color: ${props.theme.colors.uiElementBorder};
     border-radius: 0.5em;
-    box-shadow: 0.0625em 0.0625em 2em
-      ${props.theme.colors.subtleBordersAndSeperators};
     margin: auto;
     padding-right: 1em;
     padding-left: 1em;
     padding-bottom: 1em;
     &:hover {
+      box-shadow: 0.0625em 0.0625em 2em
+        ${props.theme.colors.subtleBordersAndSeperators};
       background-color: ${props.theme.colors.hoveredUiElementBackground};
       border-color: ${props.theme.colors.hoveredUiElementBorder};
       cursor: pointer;
@@ -63,7 +63,6 @@ export const PostCardLink = styled(Link)`
   &:active {
     text-decoration: underline;
   }
-  &:link,
   &:visited {
     text-decoration: none;
   }

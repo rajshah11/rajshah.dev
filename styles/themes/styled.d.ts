@@ -32,7 +32,6 @@ declare module "styled-components" {
       lowContrastText: string;
       highContrastText: string;
     };
-    fontFamily: string;
     fontSize: string;
     fontWeights: {
       h1: number;
