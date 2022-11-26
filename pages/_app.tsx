@@ -11,10 +11,19 @@ import {
   ThemeContextType,
   ThemeType,
 } from "../styles/themes/ThemeContext";
+import { Layout } from "../layouts";
+import { NextPage } from "next";
 
 const components = { ImageGallery: ImageGallery };
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: React.ReactElement) => React.ReactNode;
+};
 
-function MyApp({ Component, pageProps }: AppProps) {
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const [theme, setTheme] = React.useState<ThemeType>("dark");
   React.useEffect(() => {
     const darkmodePreference = window.localStorage.getItem(
@@ -32,12 +41,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       setTheme(theme == "dark" ? "light" : "dark");
     },
   };
+  const getLayout = Component.getLayout ?? ((page) => <Layout>{page}</Layout>);
   return (
     <ThemeContext.Provider value={themeContext}>
       <ThemeProvider theme={theme == "dark" ? DarkTheme : LightTheme}>
         <GlobalStyle />
         <MDXProvider components={components}>
-          <Component {...pageProps} />
+          {getLayout(<Component {...pageProps} />)}
         </MDXProvider>
       </ThemeProvider>
     </ThemeContext.Provider>

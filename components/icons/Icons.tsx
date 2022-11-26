@@ -1,3 +1,5 @@
+import { DarkmodeToggle } from "../darkmode-toggle/DarkmodeToggle";
+import { Stack } from "../stack/Stack";
 import * as Styled from "./Icons.styled";
 
 const IconWithLink = ({
@@ -8,21 +10,22 @@ const IconWithLink = ({
   children: React.ReactNode;
 }) => {
   return (
-    <a href={link} target="_blank" rel="noreferrer">
+    <Styled.IconLink href={link} target="_blank" rel="noreferrer">
       {children}
-    </a>
+    </Styled.IconLink>
   );
 };
 export const Icons = () => (
-  <Styled.Icons>
-    <IconWithLink link="https://twitter.com/rajmshah11">
-      <Styled.TwitterIcon />
-    </IconWithLink>
+  <Stack direction="row" gap="1em" alignItems="center">
     <IconWithLink link="https://github.com/rajshah11">
       <Styled.GitHubIcon />
+    </IconWithLink>
+    <IconWithLink link="https://twitter.com/rajmshah11">
+      <Styled.TwitterIcon />
     </IconWithLink>
     <IconWithLink link="https://www.linkedin.com/feed/">
       <Styled.LinkedInIcon />
     </IconWithLink>
-  </Styled.Icons>
+    <DarkmodeToggle></DarkmodeToggle>
+  </Stack>
 );

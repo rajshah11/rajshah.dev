@@ -14,8 +14,9 @@ export const PostLayout = ({
   children: React.ReactNode;
   layout: PostLayoutKeysType;
 }) => (
-  <Layout title={title} pageHeader={title} layout={layout}>
+  <div>
+    <h1>{title}</h1>
     <Styled.PostDate> {dayjs(date).format("MMMM DD, YYYY")}</Styled.PostDate>
     <Styled.PostContent>{children}</Styled.PostContent>
-  </Layout>
+  </div>
 );

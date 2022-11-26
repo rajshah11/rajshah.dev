@@ -1,25 +1,26 @@
 import React from "react";
+import { Icons } from "../icons/Icons";
 import * as Styled from "../navbar/Navbar.styled";
-import { Header2 } from "../text/Text";
+import { Stack } from "../stack/Stack";
 
 export const Navbar = () => {
   return (
-    <Styled.NavigationBar>
-      <Styled.NavigationItem>
+    <Stack
+      direction="row"
+      margin="0 0 3em 0"
+      justifyContent="space-between"
+      alignItems="center"
+    >
+      <Stack direction="row" gap="1em" alignItems="center">
         <Styled.NavigationLink href="/">
-          <Header2>Home</Header2>
+          <h4>/home</h4>
         </Styled.NavigationLink>
-      </Styled.NavigationItem>
-      <Styled.NavigationItem>
-        <Styled.NavigationLink href="/posts">
-          <Header2>Posts</Header2>
+
+        <Styled.NavigationLink href="/code">
+          <h4>/code</h4>
         </Styled.NavigationLink>
-      </Styled.NavigationItem>
-      <Styled.NavigationItem>
-        <Styled.NavigationLink href="/about">
-          <Header2>About</Header2>
-        </Styled.NavigationLink>
-      </Styled.NavigationItem>
-    </Styled.NavigationBar>
+      </Stack>
+      <Icons></Icons>
+    </Stack>
   );
 };

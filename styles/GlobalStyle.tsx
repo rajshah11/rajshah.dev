@@ -27,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
   h2{
     font-variation-settings: "wght" ${(props) =>
       props.theme.fontWeights.h2}, "slnt" ${(props) =>
-  props.theme.fontSlants.h2};  
+  props.theme.fontSlants.h2};    
   }
 
   h3{

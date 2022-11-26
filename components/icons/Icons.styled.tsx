@@ -4,24 +4,20 @@ import {
   GitHubLogoIcon,
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
-export const Icons = styled.div`
-  width: 30%;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 7.5vh;
-  a {
-    color: ${(props) => props.theme.colors.solidBackground};
-    &:hover {
-      color: ${(props) => props.theme.colors.hoveredSolidBackground};
-    }
+
+export const IconLink = styled.a`
+  color: ${(props) => props.theme.colors.lowContrastText};
+  &:visited {
+    color: ${(props) => props.theme.colors.lowContrastText};
+  }
+  &:hover {
+    color: ${(props) => props.theme.colors.highContrastText};
   }
 `;
-
 const IconCss = css`
-  width: 2em;
-  height: 2em;
+  width: 1.5em;
+  height: 1.5em;
+  margin: auto;
 `;
 
 export const TwitterIcon = styled(TwitterLogoIcon)`

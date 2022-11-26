@@ -2,14 +2,41 @@ import styled, { css } from "styled-components";
 
 export const Stack = styled.div<{
   direction: "row" | "column";
-  gap: string | undefined;
+  gap?: string | number;
+  padding?: string;
+  margin?: string;
+  justifyContent?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
+
+  alignItems?: "stretch" | "flex-start" | "flex-end" | "center" | "baseline";
 }>`
-  ${(props) => css`
+  ${({ direction, gap, padding, margin, justifyContent, alignItems }) => css`
     display: flex;
-    flex-direction: ${props.direction};
-    ${props.gap &&
+    flex-direction: ${direction};
+    ${gap &&
     css`
-      gap: ${props.gap};
+      gap: ${gap};
+    `}
+    ${padding &&
+    css`
+      padding: ${padding};
+    `}
+    ${margin &&
+    css`
+      margin: ${margin};
+    `}
+        ${justifyContent &&
+    css`
+      justify-content: ${justifyContent};
+    `}
+   ${alignItems &&
+    css`
+      align-items: ${alignItems};
     `}
   `}
 `;

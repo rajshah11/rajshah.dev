@@ -7,3 +7,4 @@ export { PostCard } from "./post-card/PostCard";
 export { Stack } from "./stack/Stack";
 export { Badge } from "./badge/Badge";
 export { PostsTable } from "./posts-table/PostsTable";
+export { Empty } from "./empty/Empty.styled";

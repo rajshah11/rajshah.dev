@@ -33,7 +33,7 @@ const PostRow = ({
   post.frontmatter?.title ? (
     <Link href={`/posts/${post.slug}`} passHref>
       <Styled.TableRow>
-        <Styled.TableColumn width="85%" customCss={TitleAndDateCustomCss}>
+        <Styled.TableColumn width="100%" customCss={TitleAndDateCustomCss}>
           <Styled.PostTitleAndDate>
             <Styled.PostTitle>{post.frontmatter.title}</Styled.PostTitle>
             {post.frontmatter.date && (
@@ -43,20 +43,6 @@ const PostRow = ({
             )}
           </Styled.PostTitleAndDate>
         </Styled.TableColumn>
-
-        {post.frontmatter.categories && (
-          <Styled.TableColumn width="15%">
-            <Styled.PostCategories>
-              {post.frontmatter.categories.split(",").map((c, index) => {
-                return (
-                  <Styled.PostCategoryLabel key={`${rowKey}-LABEL-${index}`}>
-                    {c.trim().toUpperCase()}
-                  </Styled.PostCategoryLabel>
-                );
-              })}
-            </Styled.PostCategories>
-          </Styled.TableColumn>
-        )}
       </Styled.TableRow>
     </Link>
   ) : null;

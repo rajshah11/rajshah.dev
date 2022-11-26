@@ -16,17 +16,3 @@ export const Layout = styled.div<{ $layout?: Types.LayoutKeysType }>`
     padding: 0.25em;
   }
 `;
-
-export const PageHeader = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-grow: 1;
-  padding-bottom: 1em;
-`;
-
-export const PageTitleNavbar = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-`;

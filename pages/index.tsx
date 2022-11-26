@@ -1,49 +1,62 @@
-import { IndexLayout } from "../layouts";
-import { Posts } from "../api";
-import { PostCard, Stack, Badge } from "../components";
-import { BANNER_LABEL, RECENT_POSTS_COUNT } from "../constants";
+import { promises as fs } from "fs";
+import * as Styled from "../styles";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import { join } from "path";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+import remarkPrism from "remark-prism";
+import remarkGfm from "remark-gfm";
+import { Empty, PostsTable } from "../components";
+import { getFrontmatterForRecentPosts } from "../api/posts/Posts";
+import { PostFrontmatterType } from "../api/posts/Posts.types";
 
 type Props = {
-  posts: {
-    slug: string;
-    frontmatter: Record<string, string> | undefined;
-  }[];
+  aboutMdxSource: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
+  recentPosts: Array<PostFrontmatterType>;
 };
-const IndexPage = ({ posts }: Props) => {
+const IndexPage = ({ aboutMdxSource, recentPosts }: Props) => {
   return (
-    <IndexLayout>
-      <RecentPostsStack posts={posts}></RecentPostsStack>
-    </IndexLayout>
+    <div>
+      <Styled.AboutContent>
+        <MDXRemote {...aboutMdxSource} />
+      </Styled.AboutContent>
+      <Empty space="1em" />
+      <h2>Recent Posts</h2>
+      <PostsTable posts={recentPosts} />
+    </div>
   );
 };
 
-const RecentPostsStack = ({ posts }: Props) => (
-  <Stack direction="column" gap="2em">
-    {posts.map((post, index) => (
-      <Badge
-        key={`BADGE-${index}`}
-        content={
-          BANNER_LABEL.includes(post.frontmatter?.banner_label ?? "")
-            ? post.frontmatter?.banner_label
-            : ""
-        }
-        toUpperCase={true}
-      >
-        <PostCard
-          key={`POST-${index}`}
-          title={post.frontmatter?.title ?? ""}
-          content={post.frontmatter?.banner_text ?? ""}
-          date={post.frontmatter?.date ?? ""}
-          link={`/posts/${post.slug}`}
-        />
-      </Badge>
-    ))}
-  </Stack>
-);
+const getAboutContent = async () => {
+  const aboutContent = await fs.readFile(
+    join(process.cwd(), "pages-content/about.mdx")
+  );
+  return await serialize(aboutContent, {
+    mdxOptions: {
+      remarkPlugins: [
+        remarkFrontmatter,
+        remarkMdxFrontmatter,
+        remarkPrism,
+        remarkGfm,
+      ],
+      rehypePlugins: [],
+      format: "mdx",
+    },
+  });
+};
 
 export const getStaticProps = async () => {
-  const posts = await Posts.getFrontmatterForRecentPosts(RECENT_POSTS_COUNT);
-  return { props: { posts } };
+  const aboutMdxSourcePromise = getAboutContent();
+  const recentPostsPromise = getFrontmatterForRecentPosts(5);
+  return Promise.all([aboutMdxSourcePromise, recentPostsPromise]).then(
+    ([aboutMdxSource, recentPosts]) => {
+      return { props: { aboutMdxSource, recentPosts } };
+    }
+  );
 };
 
 IndexPage.displayName = "Index";

@@ -4,26 +4,12 @@ import { Icons, Navbar, DarkmodeToggle } from "../../components";
 import * as Styled from "../layout/Layout.styled";
 import * as Types from "../layout/Layout.types";
 
-export const Layout = ({
-  title,
-  pageHeader,
-  layout,
-  children,
-}: Types.LayoutProps) => (
-  <Styled.Layout $layout={layout}>
+export const Layout = ({ title, children }: Types.LayoutProps) => (
+  <Styled.Layout>
     <Head>
-      <title>{title ?? "Code. Life. Everything else."}</title>
+      <title>{title ?? "Hey! | Raj Shah"}</title>
     </Head>
-    <Styled.PageHeader>
-      <Styled.PageTitleNavbar>
-        {Types.PostLayoutKeys.find((x) => x == layout) ? <Navbar /> : null}
-        {React.isValidElement(pageHeader) ? pageHeader : <h1>{pageHeader}</h1>}
-        {Types.PostLayoutKeys.find((x) => x == layout) ? null : <Navbar />}
-      </Styled.PageTitleNavbar>
-
-      <DarkmodeToggle></DarkmodeToggle>
-    </Styled.PageHeader>
+    <Navbar></Navbar>
     {children}
-    <Icons />
   </Styled.Layout>
 );

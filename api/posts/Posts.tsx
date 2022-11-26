@@ -8,6 +8,7 @@ import remarkPrism from "remark-prism";
 import { PostFrontmatterType, PostType } from "./Posts.types";
 
 const postsDirectory = join(process.cwd(), "posts");
+export type PostCategories = "code";
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
@@ -52,25 +53,39 @@ export async function getAllPosts(): Promise<Array<PostType>> {
 }
 
 export async function getFrontmatterForRecentPosts(
-  count: number | "all"
+  count: number | "all",
+  category?: PostCategories
 ): Promise<Array<PostFrontmatterType>> {
   const slugs = getPostSlugs();
   const posts = await Promise.all(
     slugs.map(async (slug) => await getPostBySlug(slug))
   );
   // sort posts by date in descending order
-  return sortPostsByDate(posts)
-    .map((p) => {
-      return {
-        slug: p.slug,
-        frontmatter: p.mdxSource.frontmatter,
-      };
-    })
-    .slice(0, count == "all" ? posts.length : count);
+  var sortedPosts = sortPostsByDate(posts).map((p) => {
+    return {
+      slug: p.slug,
+      frontmatter: p.mdxSource.frontmatter,
+    };
+  });
+
+  var sortedPostsByCategory = !category
+    ? sortedPosts
+    : sortedPosts.filter(
+        (p) =>
+          p.frontmatter?.categories &&
+          p.frontmatter?.categories.split(",").includes(category)
+      );
+  return sortedPostsByCategory.slice(0, count == "all" ? posts.length : count);
 }
 
 export async function getFrontmatterForAllPosts(): Promise<
   Array<PostFrontmatterType>
 > {
   return await getFrontmatterForRecentPosts("all");
+}
+
+export async function getFrontmatterForPostsByCategory(
+  category: PostCategories
+): Promise<Array<PostFrontmatterType>> {
+  return await getFrontmatterForRecentPosts("all", category);
 }
