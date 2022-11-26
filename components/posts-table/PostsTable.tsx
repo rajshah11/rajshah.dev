@@ -23,7 +23,13 @@ const TitleAndDateCustomCss = css`
   `}
 `;
 
-const Test = ({ post }: { post: PostFrontmatterType }) =>
+const PostRow = ({
+  rowKey,
+  post,
+}: {
+  rowKey: string;
+  post: PostFrontmatterType;
+}) =>
   post.frontmatter?.title ? (
     <Link href={`/posts/${post.slug}`} passHref>
       <Styled.TableRow>
@@ -41,9 +47,9 @@ const Test = ({ post }: { post: PostFrontmatterType }) =>
         {post.frontmatter.categories && (
           <Styled.TableColumn width="20%">
             <Styled.PostCategories>
-              {post.frontmatter.categories.split(",").map((c) => {
+              {post.frontmatter.categories.split(",").map((c, index) => {
                 return (
-                  <Styled.PostCategoryLabel>
+                  <Styled.PostCategoryLabel key={`${rowKey}-LABEL-${index}`}>
                     {c.trim().toUpperCase()}
                   </Styled.PostCategoryLabel>
                 );
@@ -63,7 +69,11 @@ export const PostsTable = ({
   return (
     <Styled.PostsTable>
       {posts.map((post, index) => (
-        <Test key={`POST-TABLE-ROW-${index}`} post={post} />
+        <PostRow
+          key={`POST-TABLE-ROW-${index}`}
+          rowKey={`POST-TABLE-ROW-${index}`}
+          post={post}
+        />
       ))}
     </Styled.PostsTable>
   );
