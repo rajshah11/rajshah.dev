@@ -4,7 +4,7 @@ import { SunIcon as SunSvg, MoonIcon as MoonSvg } from "@radix-ui/react-icons";
 
 export const DarkmodeToggleIcon = styled(Toggle.Root)`
   ${(props) => css`
-    background-color: ${props.theme.colors.appBackground};
+    background-color: ${props.theme.colors.subtleBackground};
     color: ${props.theme.colors.lowContrastText};
     height: 3em;
     width: 3em;
@@ -18,6 +18,7 @@ export const DarkmodeToggleIcon = styled(Toggle.Root)`
     border-width: 0;
     &:hover {
       background-color: ${props.theme.colors.hoveredUiElementBackground};
+      cursor: pointer;
     }
   `}
 `;
