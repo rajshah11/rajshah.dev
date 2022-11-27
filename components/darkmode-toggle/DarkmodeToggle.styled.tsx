@@ -6,11 +6,12 @@ export const DarkmodeToggleIcon = styled(Toggle.Root)`
   ${(props) => css`
     background-color: ${props.theme.colors.subtleBackground};
     color: ${props.theme.colors.lowContrastText};
-    height: 2.25em;
-    width: 2.25em;
-    display: block;
+    height: 3em;
+    width: 3em;
+    margin: auto;
     border-radius: 0.5em;
     border-width: 0;
+    margin: auto;
     &:hover {
       background-color: ${props.theme.colors.hoveredUiElementBackground};
       color: ${props.theme.colors.highContrastText};
@@ -20,13 +21,11 @@ export const DarkmodeToggleIcon = styled(Toggle.Root)`
 `;
 
 export const SunIcon = styled(SunSvg)`
-  width: 1.5em;
-  height: 1.5em;
-  margin: auto;
+  width: 2em;
+  height: 2em;
 `;
 
 export const MoonIcon = styled(MoonSvg)`
-  width: 1.5em;
-  height: 1.5em;
-  margin: auto;
+  width: 2em;
+  height: 2em;
 `;
