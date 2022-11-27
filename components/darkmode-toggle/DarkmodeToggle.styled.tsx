@@ -4,7 +4,7 @@ import { SunIcon as SunSvg, MoonIcon as MoonSvg } from "@radix-ui/react-icons";
 
 export const DarkmodeToggleIcon = styled(Toggle.Root)`
   ${(props) => css`
-    background-color: ${props.theme.colors.subtleBackground};
+    background-color: ${props.theme.colors.appBackground};
     color: ${props.theme.colors.lowContrastText};
     height: 3em;
     width: 3em;

@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   html, body{
-    background-color: ${(props) => props.theme.colors.subtleBackground};
+    background-color: ${(props) => props.theme.colors.appBackground};
     --main-div-max-width: min(max(480px, 50vw), 100vw);
     font-variation-settings: "wght" ${(props) =>
       props.theme.fontWeights.normal}, "slnt" ${(props) =>
