@@ -7,6 +7,7 @@ type Props = {
     frontmatter: Record<string, string> | undefined;
   }[];
 };
+
 const CodePage = ({ posts }: Props) => {
   return <AllCodePosts posts={posts} />;
 };

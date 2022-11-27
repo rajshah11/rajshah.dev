@@ -23,13 +23,7 @@ const TitleAndDateCustomCss = css`
   `}
 `;
 
-const PostRow = ({
-  rowKey,
-  post,
-}: {
-  rowKey: string;
-  post: PostFrontmatterType;
-}) =>
+const PostRow = ({ post }: { post: PostFrontmatterType }) =>
   post.frontmatter?.title ? (
     <Link href={`/posts/${post.slug}`} passHref>
       <Styled.TableRow>
@@ -55,11 +49,7 @@ export const PostsTable = ({
   return (
     <Styled.PostsTable>
       {posts.map((post, index) => (
-        <PostRow
-          key={`POST-TABLE-ROW-${index}`}
-          rowKey={`POST-TABLE-ROW-${index}`}
-          post={post}
-        />
+        <PostRow key={`POST-TABLE-ROW-${index}`} post={post} />
       ))}
     </Styled.PostsTable>
   );

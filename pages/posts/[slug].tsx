@@ -1,5 +1,5 @@
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { PostLayout, PostLayoutKeysType } from "../../layouts";
+import { PostLayout } from "../../layouts";
 import { Posts } from "../../api";
 
 interface PostInterface {
@@ -10,23 +10,16 @@ interface PostInterface {
   >;
 }
 
-export default function PostPage({
-  post,
-}: {
-  post: PostInterface;
-}): JSX.Element {
-  const layout: PostLayoutKeysType = (post.mdxSource.frontmatter?.layout ??
-    "post") as PostLayoutKeysType;
+const PostPage = ({ post }: { post: PostInterface }) => {
   return (
     <PostLayout
       title={post.mdxSource.frontmatter?.title}
       date={post.mdxSource.frontmatter?.date ?? ""}
-      layout={layout}
     >
       <MDXRemote {...post.mdxSource} />
     </PostLayout>
   );
-}
+};
 
 type Params = {
   params: {
@@ -62,3 +55,6 @@ export async function getStaticPaths(): Promise<{
     fallback: false,
   };
 }
+
+PostPage.displayName = "Post";
+export default PostPage;

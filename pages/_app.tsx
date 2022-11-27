@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import { MDXProvider } from "@mdx-js/react";
 import { ImageGallery } from "../components";
 import "../public/styles/flexboxgrid.css";
-import "../public/prism/prism.css";
+import "../public/styles/prism/prism.css";
 import { GlobalStyle, LightTheme, DarkTheme } from "../styles";
 import { ThemeProvider } from "styled-components";
 import * as React from "react";

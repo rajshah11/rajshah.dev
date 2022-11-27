@@ -1,7 +1,6 @@
-import styled, { css } from "styled-components";
-import * as Types from "./Layout.types";
+import styled from "styled-components";
 
-export const Layout = styled.div<{ $layout?: Types.LayoutKeysType }>`
+export const Layout = styled.div`
   margin: auto;
   padding: 2vmin;
   padding-top: 4vmin;
