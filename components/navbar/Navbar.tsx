@@ -13,11 +13,11 @@ export const Navbar = () => {
     >
       <Stack direction="row" gap="1em" alignItems="center">
         <Styled.NavigationLink href="/">
-          <h4>/home</h4>
+          <h3>/home</h3>
         </Styled.NavigationLink>
 
         <Styled.NavigationLink href="/code">
-          <h4>/code</h4>
+          <h3>/code</h3>
         </Styled.NavigationLink>
       </Stack>
       <Icons></Icons>

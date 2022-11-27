@@ -9,7 +9,7 @@ export const Layout = ({ title, children }: Types.LayoutProps) => (
     <Head>
       <title>{title ?? "Hey! | Raj Shah"}</title>
     </Head>
-    <Navbar></Navbar>
+    <Navbar />
     {children}
   </Styled.Layout>
 );
