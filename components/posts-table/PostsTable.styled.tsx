@@ -17,7 +17,10 @@ export const PostsTable = styled.div`
       text-decoration: none;
     }`;
 
-export const PostTitle = styled.h3``;
+export const PostTitle = styled.h3`
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+`;
 
 export const PostDate = styled.div`
   font-size: 0.8em;

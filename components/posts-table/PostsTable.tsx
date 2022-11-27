@@ -7,9 +7,7 @@ import * as Styled from "./PostsTable.styled";
 const TitleAndDateCustomCss = css`
   ${(props) => css`
     border-radius: 0.5em;
-    padding-left: 0.25em;
-    padding-right: 0.25em;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.25em;
     &:hover {
       background-color: ${props.theme.colors.hoveredUiElementBackground};
       border-color: ${props.theme.colors.hoveredUiElementBorder};
@@ -19,6 +17,7 @@ const TitleAndDateCustomCss = css`
       border-radius: 0.5em;
       box-shadow: 0.0625em 0.0625em 2em
         ${props.theme.colors.subtleBordersAndSeperators};
+      padding-left: 0.25em;
     }
   `}
 `;
