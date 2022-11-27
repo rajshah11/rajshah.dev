@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import * as Types from "../layout/Layout.types";
+import * as Types from "./Layout.types";
 
 export const Layout = styled.div<{ $layout?: Types.LayoutKeysType }>`
   margin: auto;

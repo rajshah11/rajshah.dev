@@ -1,8 +1,8 @@
 import Head from "next/head";
 import React from "react";
-import { Icons, Navbar, DarkmodeToggle } from "../../components";
-import * as Styled from "../layout/Layout.styled";
-import * as Types from "../layout/Layout.types";
+import { Navbar } from "../components";
+import * as Styled from "./Layout.styled";
+import * as Types from "./Layout.types";
 
 export const Layout = ({ title, children }: Types.LayoutProps) => (
   <Styled.Layout>

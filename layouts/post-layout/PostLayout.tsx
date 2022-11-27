@@ -1,5 +1,4 @@
-import { Layout } from "../layout/Layout";
-import { PostLayoutKeysType } from "../layout/Layout.types";
+import { PostLayoutKeysType } from "../Layout.types";
 import * as Styled from "./PostLayout.styled";
 import dayjs from "dayjs";
 

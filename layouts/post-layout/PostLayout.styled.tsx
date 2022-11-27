@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Layout } from "../layout/Layout.styled";
+import { Layout } from "../Layout.styled";
 
 export const PostContent = styled(Layout)`
   h1,
