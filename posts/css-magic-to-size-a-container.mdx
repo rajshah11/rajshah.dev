@@ -32,7 +32,7 @@ max-width: min(max(480px, 50vw), 100vw);
 
 The code above essentially follows 3 conditions:
 
-1. If 60% of the viewport's width > 480px, then use 60% of the viewport's width
+1. If 50% of the viewport's width > 480px, then use 50% of the viewport's width
 
    - _This ensures that for large windows or screens like a 27 inch monitor, the content of the webpage is not extended and difficult to read like first image, but compact, in-focus and easy to read like the second one._
 
@@ -75,7 +75,7 @@ The code above essentially follows 3 conditions:
   colSizing="col-xs col-sm col-md col-lg"
 />
 
-3. If conditions #1 and #2, then use 100% of the viewport's width
+3. If conditions #1 and #2 fail, then use 100% of the viewport's width
    - _This allows the website to use all of the real-estate on a mobile screen._
 
 Finally, below are some plots to drive home the message. Hope this was helpful!
