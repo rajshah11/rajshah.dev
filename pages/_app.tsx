@@ -13,6 +13,7 @@ import {
 } from "../styles/themes/ThemeContext";
 import { Layout } from "../layouts";
 import { NextPage } from "next";
+import { Analytics } from "@vercel/analytics/react";
 
 const components = { ImageGallery: ImageGallery };
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -48,6 +49,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <GlobalStyle />
         <MDXProvider components={components}>
           {getLayout(<Component {...pageProps} />)}
+          <Analytics />
         </MDXProvider>
       </ThemeProvider>
     </ThemeContext.Provider>
